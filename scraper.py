@@ -114,19 +114,6 @@ def scrape_all(page):
         results["バイセル"] = None
 
     # ================================
-    # リファスタ
-    # ================================
-    try:
-        page.goto("https://kinkaimasu.jp/", wait_until="networkidle", timeout=30000)
-        el = page.query_selector("div#gold.price span.big")
-        if el:
-            results["リファスタ"] = clean_price(el.inner_text())
-        print(f"リファスタ: {results.get('リファスタ', '取得失敗')}")
-    except Exception as e:
-        print(f"リファスタエラー: {e}")
-        results["リファスタ"] = None
-
-    # ================================
     # ブラリバ
     # ================================
     try:
@@ -156,7 +143,7 @@ def save_to_spreadsheet(prices, date_str):
 
         existing = sheet.get_all_values()
         if not existing:
-            headers = ["日付", "田中貴金属", "まねきや", "おたからや", "買取大吉", "なんぼや", "バイセル", "リファスタ", "ブラリバ"]
+            headers = ["日付", "田中貴金属", "まねきや", "おたからや", "買取大吉", "なんぼや", "バイセル", "ブラリバ"]
             sheet.append_row(headers)
 
         row = [
@@ -167,7 +154,6 @@ def save_to_spreadsheet(prices, date_str):
             prices.get("買取大吉", ""),
             prices.get("なんぼや", ""),
             prices.get("バイセル", ""),
-            prices.get("リファスタ", ""),
             prices.get("ブラリバ", ""),
         ]
         sheet.append_row(row)
@@ -229,14 +215,6 @@ def save_to_json(prices, updated_at):
             "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
             "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
             "price": prices.get("バイセル"),
-            "is_benchmark": False
-        },
-        {
-            "name": "リファスタ",
-            "label": "",
-            "url": "https://kinkaimasu.jp/",
-            "affiliate_url": "https://kaitoriranking.net/url/KIN/REFASTA-kin/?hikaku=market-rate",
-            "price": prices.get("リファスタ"),
             "is_benchmark": False
         },
         {
