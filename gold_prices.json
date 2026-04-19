@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年04月19日 21:50",
+  "updated_at": "2026年04月19日 23:38",
   "prices": [
     {
       "name": "田中貴金属",
@@ -55,14 +55,6 @@
       "url": "https://brandrevalue.com/recommend/gold",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
       "price": 26783,
-      "is_benchmark": false
-    },
-    {
-      "name": "リファスタ",
-      "label": "",
-      "url": "https://kinkaimasu.jp/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/REFASTA-kin/?hikaku=market-rate",
-      "price": 26482,
       "is_benchmark": false
     }
   ]
