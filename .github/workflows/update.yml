@@ -1,34 +1,28 @@
-name: 金買取価格 毎日自動更新
+name: gold-price-update
 
 on:
   schedule:
-    # 毎朝9時（日本時間）に実行 ※GitHubはUTC基準なので9時間引く
-    - cron: '0 0 * * 1-5'  # 月〜金 UTC0時 = JST9時
-  workflow_dispatch:  # 手動実行ボタンも使えるようにする
+    - cron: '0 0 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   update-prices:
     runs-on: ubuntu-latest
 
     steps:
-      - name: リポジトリをチェックアウト
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Pythonをセットアップ
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: 必要なライブラリをインストール
-        run: pip install requests beautifulsoup4
+      - run: pip install requests beautifulsoup4
 
-      - name: 価格取得スクリプトを実行
-        run: python scraper.py
+      - run: python scraper.py
 
-      - name: 更新されたJSONをGitHubにコミット・プッシュ
-        run: |
+      - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add gold_prices.json
-          git diff --staged --quiet || git commit -m "価格を自動更新: $(date '+%Y-%m-%d')"
+          git diff --staged --quiet || git commit -m "update prices"
           git push
