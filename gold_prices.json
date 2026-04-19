@@ -1,5 +1,5 @@
 {
-  "updated_at": "取得前",
+  "updated_at": "2026年04月19日 05:15",
   "prices": [
     {
       "name": "田中貴金属",
@@ -9,37 +9,37 @@
       "is_benchmark": true
     },
     {
+      "name": "なんぼや",
+      "label": "",
+      "url": "https://nanboya.com/gold-kaitori/",
+      "price": 67178,
+      "is_benchmark": false
+    },
+    {
       "name": "おたからや",
       "label": "",
       "url": "https://lp.otakaraya.jp/lp-gold-b/",
-      "price": null,
+      "price": 26897,
       "is_benchmark": false
     },
     {
       "name": "買取大吉",
       "label": "",
       "url": "https://daikichi-kaitori.jp/gold/",
-      "price": null,
-      "is_benchmark": false
-    },
-    {
-      "name": "なんぼや",
-      "label": "",
-      "url": "https://nanboya.com/gold-kaitori/",
-      "price": null,
-      "is_benchmark": false
-    },
-    {
-      "name": "リファスタ",
-      "label": "",
-      "url": "https://kinkaimasu.jp/",
-      "price": null,
+      "price": 26783,
       "is_benchmark": false
     },
     {
       "name": "ブラリバ",
       "label": "",
       "url": "https://brandrevalue.com/recommend/gold",
+      "price": 26783,
+      "is_benchmark": false
+    },
+    {
+      "name": "リファスタ",
+      "label": "",
+      "url": "https://kinkaimasu.jp/",
       "price": null,
       "is_benchmark": false
     }
