@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年04月19日 05:15",
+  "updated_at": "2026年04月19日 05:21",
   "prices": [
     {
       "name": "田中貴金属",
@@ -7,13 +7,6 @@
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "price": null,
       "is_benchmark": true
-    },
-    {
-      "name": "なんぼや",
-      "label": "",
-      "url": "https://nanboya.com/gold-kaitori/",
-      "price": 67178,
-      "is_benchmark": false
     },
     {
       "name": "おたからや",
@@ -34,6 +27,13 @@
       "label": "",
       "url": "https://brandrevalue.com/recommend/gold",
       "price": 26783,
+      "is_benchmark": false
+    },
+    {
+      "name": "なんぼや",
+      "label": "",
+      "url": "https://nanboya.com/gold-kaitori/",
+      "price": null,
       "is_benchmark": false
     },
     {
