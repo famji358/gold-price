@@ -1,0 +1,95 @@
+{
+  "shops": [
+    {
+      "name": "まねきや",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "delivery": true,
+      "visit": true,
+      "store": true,
+      "fee": "無料",
+      "store_count": "25",
+      "review": "4.8",
+      "is_benchmark": false,
+      "note": ""
+    },
+    {
+      "name": "おたからや",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
+      "delivery": false,
+      "visit": true,
+      "store": true,
+      "fee": "無料",
+      "store_count": "1,740",
+      "review": "4.8",
+      "is_benchmark": false,
+      "note": ""
+    },
+    {
+      "name": "買取大吉",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
+      "delivery": false,
+      "visit": true,
+      "store": true,
+      "fee": "無料",
+      "store_count": "1,800",
+      "review": "4.8",
+      "is_benchmark": false,
+      "note": ""
+    },
+    {
+      "name": "なんぼや",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
+      "delivery": true,
+      "visit": true,
+      "store": true,
+      "fee": "無料",
+      "store_count": "144",
+      "review": "4.8",
+      "is_benchmark": false,
+      "note": ""
+    },
+    {
+      "name": "バイセル",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
+      "delivery": true,
+      "visit": true,
+      "store": true,
+      "fee": "無料",
+      "store_count": "162",
+      "review": "4.8",
+      "is_benchmark": false,
+      "note": ""
+    },
+    {
+      "name": "ブラリバ",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
+      "delivery": true,
+      "visit": true,
+      "store": true,
+      "fee": "無料",
+      "store_count": "29",
+      "review": "4.8",
+      "is_benchmark": false,
+      "note": ""
+    },
+    {
+      "name": "田中貴金属",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "affiliate_url": "",
+      "delivery": false,
+      "visit": false,
+      "store": true,
+      "fee": "",
+      "store_count": "",
+      "review": "",
+      "is_benchmark": true,
+      "note": "日本の地金価格の代表的な指標（ベンチマーク）。インゴット・メダルのみ取引可能。"
+    }
+  ]
+}
