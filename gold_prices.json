@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年04月19日 06:04",
+  "updated_at": "2026年04月19日 06:14",
   "prices": [
     {
       "name": "田中貴金属",
@@ -23,6 +23,13 @@
       "is_benchmark": false
     },
     {
+      "name": "バイセル",
+      "label": "",
+      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
+      "price": 26783,
+      "is_benchmark": false
+    },
+    {
       "name": "ブラリバ",
       "label": "",
       "url": "https://brandrevalue.com/recommend/gold",
@@ -37,13 +44,7 @@
       "is_benchmark": false
     },
     {
-      "name": "バイセル",
-      "label": "",
-      "url": "https://buysell-kaitori.com/gold/",
-      "price": null,
-      "is_benchmark": false
-    },
-    {
+      "name": "なんぼや",
       "label": "",
       "url": "https://nanboya.com/gold-kaitori/",
       "price": null,
