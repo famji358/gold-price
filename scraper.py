@@ -74,9 +74,9 @@ def scrape_all(page):
     # なんぼや
     # ================================
     try:
-        page.goto("https://nanboya.com/gold-kaitori/", wait_until="networkidle", timeout=30000)
-        page.wait_for_selector(".soaring_metal_price_3", timeout=10000)
-        el = page.query_selector(".soaring_metal_price_3 .price_3_val")
+        page.goto("https://nanboya.com/gold-kaitori/souba/", wait_until="networkidle", timeout=30000)
+        page.wait_for_selector(".tp-gold-price_1g", timeout=10000)
+        el = page.query_selector(".tp-gold-price_1g")
         if el:
             results["なんぼや"] = clean_price(el.inner_text())
         print(f"なんぼや: {results.get('なんぼや', '取得失敗')}")
@@ -194,11 +194,12 @@ def save_to_json(prices, updated_at):
         {
             "name": "バイセル",
             "label": "",
-            "url": "https://buysell-kaitori.com/gold/",
+            "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
             "price": prices.get("バイセル"),
             "is_benchmark": False
         },
         {
+            "name": "なんぼや",
             "label": "",
             "url": "https://nanboya.com/gold-kaitori/",
             "price": prices.get("なんぼや"),
