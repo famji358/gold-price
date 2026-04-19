@@ -47,7 +47,8 @@ def scrape_all(page):
     # まねきや
     # ================================
     try:
-        page.goto("https://manekiya.shop/rate", wait_until="networkidle", timeout=30000)
+        page.goto("https://manekiya.shop/rate", wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_selector("p.price.ingot_price", timeout=15000)
         el = page.query_selector("p.price.ingot_price")
         if el:
             results["まねきや"] = clean_price(el.inner_text())
