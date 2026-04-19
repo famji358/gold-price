@@ -1,0 +1,47 @@
+{
+  "updated_at": "取得前",
+  "prices": [
+    {
+      "name": "田中貴金属",
+      "label": "ベンチマーク（公式相場）",
+      "url": "https://gold.tanaka.co.jp/silver_price/",
+      "price": null,
+      "is_benchmark": true
+    },
+    {
+      "name": "おたからや",
+      "label": "",
+      "url": "https://lp.otakaraya.jp/lp-gold-b/",
+      "price": null,
+      "is_benchmark": false
+    },
+    {
+      "name": "買取大吉",
+      "label": "",
+      "url": "https://daikichi-kaitori.jp/gold/",
+      "price": null,
+      "is_benchmark": false
+    },
+    {
+      "name": "なんぼや",
+      "label": "",
+      "url": "https://nanboya.com/gold-kaitori/",
+      "price": null,
+      "is_benchmark": false
+    },
+    {
+      "name": "リファスタ",
+      "label": "",
+      "url": "https://kinkaimasu.jp/",
+      "price": null,
+      "is_benchmark": false
+    },
+    {
+      "name": "ブラリバ",
+      "label": "",
+      "url": "https://brandrevalue.com/recommend/gold",
+      "price": null,
+      "is_benchmark": false
+    }
+  ]
+}
