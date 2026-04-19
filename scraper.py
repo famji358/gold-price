@@ -227,9 +227,17 @@ def save_to_json(prices, updated_at):
         },
     ]
 
+    PRIORITY = ["おたからや", "まねきや", "買取大吉", "ブラリバ", "なんぼや", "バイセル"]
+
     benchmark = [e for e in entries if e["is_benchmark"]]
     others = [e for e in entries if not e["is_benchmark"]]
-    others_sorted = sorted(others, key=lambda x: x["price"] if x["price"] else 0, reverse=True)
+    others_sorted = sorted(
+        others,
+        key=lambda x: (
+            -(x["price"] if x["price"] else 0),
+            PRIORITY.index(x["name"]) if x["name"] in PRIORITY else 999
+        )
+    )
 
     data = {
         "updated_at": updated_at,
