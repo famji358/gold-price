@@ -1,168 +1,264 @@
-import requests
-from bs4 import BeautifulSoup
 import json
 import re
+import os
 from datetime import datetime
+from playwright.sync_api import sync_playwright
+import gspread
+from google.oauth2.service_account import Credentials
 
-# ヘッダー（ブラウザのふりをしてブロックされにくくする）
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-}
+# ================================
+# 設定
+# ================================
+SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID", "")  # GitHub Secretsから読み込む
+GOOGLE_CREDENTIALS_JSON = os.environ.get("GOOGLE_CREDENTIALS_JSON", "")  # GitHub Secretsから読み込む
 
 def clean_price(text):
-    """価格テキストから数字だけ取り出す"""
+    """テキストから金の1g価格として妥当な数字を取り出す"""
     nums = re.findall(r'[\d,]+', text)
     for n in nums:
         val = int(n.replace(',', ''))
-        if 10000 <= val <= 100000:  # 金の1g価格として妥当な範囲
+        if 10000 <= val <= 100000:
             return val
     return None
 
-def get_tanaka():
-    """田中貴金属（ベンチマーク）"""
+def scrape_all(page):
+    """全社の価格を取得"""
+    results = {}
+
+    # ================================
+    # 田中貴金属（ベンチマーク）
+    # ================================
     try:
-        res = requests.get("https://gold.tanaka.co.jp/silver_price/", headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(res.text, "html.parser")
-        # 買取価格行のtdから最初のprice_numを取得
-        for row in soup.select("table tr"):
-            if "店頭買取価格" in row.get_text():
-                el = row.select_one(".price_num")
-                if el:
-                    return clean_price(el.get_text())
+        page.goto("https://gold.tanaka.co.jp/silver_price/", wait_until="networkidle", timeout=30000)
+        # 買取価格行のprice_numを取得（price_sellクラスの親を持たないもの）
+        els = page.query_selector_all(".price_num")
+        for el in els:
+            parent = el.evaluate("el => el.parentElement.className")
+            if "price_sell" not in parent:
+                price = clean_price(el.inner_text())
+                if price:
+                    results["田中貴金属"] = price
+                    break
+        print(f"田中貴金属: {results.get('田中貴金属', '取得失敗')}")
     except Exception as e:
         print(f"田中貴金属エラー: {e}")
-    return None
+        results["田中貴金属"] = None
 
-def get_otakaraya():
-    """おたからや"""
+    # ================================
+    # おたからや
+    # ================================
     try:
-        res = requests.get("https://www.otakaraya.jp/gold/", headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(res.text, "html.parser")
-        el = soup.select_one(".rate-price")
+        page.goto("https://www.otakaraya.jp/gold/", wait_until="networkidle", timeout=30000)
+        el = page.query_selector(".rate-price")
         if el:
-            return clean_price(el.get_text())
+            results["おたからや"] = clean_price(el.inner_text())
+        print(f"おたからや: {results.get('おたからや', '取得失敗')}")
     except Exception as e:
         print(f"おたからやエラー: {e}")
-    return None
+        results["おたからや"] = None
 
-def get_daikichi():
-    """買取大吉"""
+    # ================================
+    # 買取大吉
+    # ================================
     try:
-        res = requests.get("https://daikichi-kaitori.jp/gold/", headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(res.text, "html.parser")
-        el = soup.find(id="bold_bm2025")
+        page.goto("https://daikichi-kaitori.jp/gold/", wait_until="networkidle", timeout=30000)
+        el = page.query_selector("#bold_bm2025")
         if el:
-            return clean_price(el.get_text())
+            results["買取大吉"] = clean_price(el.inner_text())
+        print(f"買取大吉: {results.get('買取大吉', '取得失敗')}")
     except Exception as e:
         print(f"買取大吉エラー: {e}")
-    return None
+        results["買取大吉"] = None
 
-def get_nanboya():
-    """なんぼや"""
+    # ================================
+    # なんぼや
+    # ================================
     try:
-        res = requests.get("https://nanboya.com/gold-kaitori/", headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(res.text, "html.parser")
-        # 今年（3年目）の価格が入るクラスを直接取得
-        el = soup.select_one(".soaring_metal_price_3")
+        page.goto("https://nanboya.com/gold-kaitori/", wait_until="networkidle", timeout=30000)
+        el = page.query_selector(".soaring_metal_price_3")
         if el:
-            return clean_price(el.get_text())
+            results["なんぼや"] = clean_price(el.inner_text())
+        print(f"なんぼや: {results.get('なんぼや', '取得失敗')}")
     except Exception as e:
         print(f"なんぼやエラー: {e}")
-    return None
+        results["なんぼや"] = None
 
-def get_refasta():
-    """リファスタ"""
+    # ================================
+    # リファスタ
+    # ================================
     try:
-        res = requests.get("https://kinkaimasu.jp/", headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(res.text, "html.parser")
-        # div#gold.price の中の span.big
-        gold_div = soup.select_one("div#gold.price")
-        if gold_div:
-            el = gold_div.select_one("span.big")
-            if el:
-                return clean_price(el.get_text())
+        page.goto("https://kinkaimasu.jp/", wait_until="networkidle", timeout=30000)
+        el = page.query_selector("div#gold.price span.big")
+        if el:
+            results["リファスタ"] = clean_price(el.inner_text())
+        print(f"リファスタ: {results.get('リファスタ', '取得失敗')}")
     except Exception as e:
         print(f"リファスタエラー: {e}")
-    return None
+        results["リファスタ"] = None
 
-def get_burariba():
-    """ブラリバ（ブランドリバリュー）"""
+    # ================================
+    # バイセル
+    # ================================
     try:
-        res = requests.get("https://brandrevalue.com/cat/gold/ingot", headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(res.text, "html.parser")
-        el = soup.select_one(".metal-price-today")
+        page.goto("https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html", wait_until="networkidle", timeout=30000)
+        el = page.query_selector("section#market-price .market-right")
         if el:
-            # 金の価格だけ取り出す（最初の妥当な数字）
-            return clean_price(el.get_text())
+            results["バイセル"] = clean_price(el.inner_text())
+        print(f"バイセル: {results.get('バイセル', '取得失敗')}")
+    except Exception as e:
+        print(f"バイセルエラー: {e}")
+        results["バイセル"] = None
+
+    # ================================
+    # ブラリバ
+    # ================================
+    try:
+        page.goto("https://brandrevalue.com/cat/gold/ingot", wait_until="networkidle", timeout=30000)
+        el = page.query_selector(".metal-price-today")
+        if el:
+            results["ブラリバ"] = clean_price(el.inner_text())
+        print(f"ブラリバ: {results.get('ブラリバ', '取得失敗')}")
     except Exception as e:
         print(f"ブラリバエラー: {e}")
-    return None
+        results["ブラリバ"] = None
 
-def main():
-    print("価格取得を開始します...")
-    
-    results = {
-        "updated_at": datetime.now().strftime("%Y年%m月%d日 %H:%M"),
-        "prices": [
-            {
-                "name": "田中貴金属",
-                "label": "ベンチマーク（公式相場）",
-                "url": "https://gold.tanaka.co.jp/silver_price/",
-                "price": get_tanaka(),
-                "is_benchmark": True
-            },
-            {
-                "name": "おたからや",
-                "label": "",
-                "url": "https://lp.otakaraya.jp/lp-gold-b/",
-                "price": get_otakaraya(),
-                "is_benchmark": False
-            },
-            {
-                "name": "買取大吉",
-                "label": "",
-                "url": "https://daikichi-kaitori.jp/gold/",
-                "price": get_daikichi(),
-                "is_benchmark": False
-            },
-            {
-                "name": "なんぼや",
-                "label": "",
-                "url": "https://nanboya.com/gold-kaitori/",
-                "price": get_nanboya(),
-                "is_benchmark": False
-            },
-            {
-                "name": "リファスタ",
-                "label": "",
-                "url": "https://kinkaimasu.jp/",
-                "price": get_refasta(),
-                "is_benchmark": False
-            },
-            {
-                "name": "ブラリバ",
-                "label": "",
-                "url": "https://brandrevalue.com/recommend/gold",
-                "price": get_burariba(),
-                "is_benchmark": False
-            },
+    return results
+
+def save_to_spreadsheet(prices, date_str):
+    """Googleスプレッドシートに1行追記する"""
+    if not SPREADSHEET_ID or not GOOGLE_CREDENTIALS_JSON:
+        print("スプレッドシートの設定がないためスキップします")
+        return
+
+    try:
+        creds_dict = json.loads(GOOGLE_CREDENTIALS_JSON)
+        scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+        creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
+        client = gspread.authorize(creds)
+        sheet = client.open_by_key(SPREADSHEET_ID).sheet1
+
+        # ヘッダーがなければ追加
+        existing = sheet.get_all_values()
+        if not existing:
+            headers = ["日付", "田中貴金属", "おたからや", "買取大吉", "なんぼや", "バイセル", "リファスタ", "ブラリバ"]
+            sheet.append_row(headers)
+
+        # 今日の行を追加
+        row = [
+            date_str,
+            prices.get("田中貴金属", ""),
+            prices.get("おたからや", ""),
+            prices.get("買取大吉", ""),
+            prices.get("なんぼや", ""),
+            prices.get("バイセル", ""),
+            prices.get("リファスタ", ""),
+            prices.get("ブラリバ", ""),
         ]
+        sheet.append_row(row)
+        print(f"スプレッドシートに記録しました: {row}")
+
+    except Exception as e:
+        print(f"スプレッドシートへの記録エラー: {e}")
+
+def save_to_json(prices, updated_at):
+    """gold_prices.jsonを更新する"""
+
+    # 買取業者のみで最高値を計算
+    kaitori = {k: v for k, v in prices.items() if k != "田中貴金属" and v}
+    max_price = max(kaitori.values()) if kaitori else 0
+
+    entries = [
+        {
+            "name": "田中貴金属",
+            "label": "ベンチマーク（公式相場）",
+            "url": "https://gold.tanaka.co.jp/silver_price/",
+            "price": prices.get("田中貴金属"),
+            "is_benchmark": True
+        },
+        {
+            "name": "おたからや",
+            "label": "",
+            "url": "https://lp.otakaraya.jp/lp-gold-b/",
+            "price": prices.get("おたからや"),
+            "is_benchmark": False
+        },
+        {
+            "name": "買取大吉",
+            "label": "",
+            "url": "https://daikichi-kaitori.jp/gold/",
+            "price": prices.get("買取大吉"),
+            "is_benchmark": False
+        },
+        {
+            "name": "バイセル",
+            "label": "",
+            "url": "https://buysell-kaitori.com/gold/",
+            "price": prices.get("バイセル"),
+            "is_benchmark": False
+        },
+        {
+            "label": "",
+            "url": "https://nanboya.com/gold-kaitori/",
+            "price": prices.get("なんぼや"),
+            "is_benchmark": False
+        },
+        {
+            "name": "リファスタ",
+            "label": "",
+            "url": "https://kinkaimasu.jp/",
+            "price": prices.get("リファスタ"),
+            "is_benchmark": False
+        },
+        {
+            "name": "ブラリバ",
+            "label": "",
+            "url": "https://brandrevalue.com/recommend/gold",
+            "price": prices.get("ブラリバ"),
+            "is_benchmark": False
+        },
+    ]
+
+    # ベンチマーク以外を価格順にソート（Noneは最後）
+    benchmark = [e for e in entries if e["is_benchmark"]]
+    others = [e for e in entries if not e["is_benchmark"]]
+    others_sorted = sorted(others, key=lambda x: x["price"] if x["price"] else 0, reverse=True)
+
+    data = {
+        "updated_at": updated_at,
+        "prices": benchmark + others_sorted
     }
 
-    # 価格順に並び替え（ベンチマークは除く、Noneは最後）
-    benchmark = [p for p in results["prices"] if p["is_benchmark"]]
-    others = [p for p in results["prices"] if not p["is_benchmark"]]
-    others_sorted = sorted(others, key=lambda x: x["price"] if x["price"] else 0, reverse=True)
-    results["prices"] = benchmark + others_sorted
+    with open("gold_prices.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print("gold_prices.json を更新しました")
+
+def main():
+    now = datetime.now()
+    updated_at = now.strftime("%Y年%m月%d日 %H:%M")
+    date_str = now.strftime("%Y/%m/%d")
+
+    print("=== 価格取得開始 ===")
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
+        page = context.new_page()
+        prices = scrape_all(page)
+        browser.close()
+
+    print("\n=== 取得結果 ===")
+    for name, price in prices.items():
+        print(f"  {name}: {f'{price:,}円/g' if price else '取得失敗'}")
 
     # JSONに保存
-    with open("gold_prices.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
+    save_to_json(prices, updated_at)
 
-    print("完了しました。gold_prices.json を確認してください。")
-    for p in results["prices"]:
-        price_str = f"{p['price']:,}円/g" if p['price'] else "取得失敗"
-        print(f"  {p['name']}: {price_str}")
+    # スプレッドシートに記録
+    save_to_spreadsheet(prices, date_str)
+
+    print("\n=== 完了 ===")
 
 if __name__ == "__main__":
     main()
