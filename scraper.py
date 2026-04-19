@@ -74,9 +74,9 @@ def scrape_all(page):
     # なんぼや
     # ================================
     try:
-        page.goto("https://nanboya.com/gold-kaitori/souba/", wait_until="networkidle", timeout=30000)
-        page.wait_for_selector(".tp-gold-price_1g", timeout=10000)
-        el = page.query_selector(".tp-gold-price_1g")
+        page.goto("https://nanboya.com/gold-kaitori/", wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_selector("span.tp-gold-price.price_number", timeout=15000)
+        el = page.query_selector("span.tp-gold-price.price_number")
         if el:
             results["なんぼや"] = clean_price(el.inner_text())
         print(f"なんぼや: {results.get('なんぼや', '取得失敗')}")
