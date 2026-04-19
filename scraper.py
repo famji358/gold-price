@@ -9,8 +9,8 @@ from google.oauth2.service_account import Credentials
 # ================================
 # 設定
 # ================================
-SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID", "")  # GitHub Secretsから読み込む
-GOOGLE_CREDENTIALS_JSON = os.environ.get("GOOGLE_CREDENTIALS_JSON", "")  # GitHub Secretsから読み込む
+SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID", "")
+GOOGLE_CREDENTIALS_JSON = os.environ.get("GOOGLE_CREDENTIALS_JSON", "")
 
 def clean_price(text):
     """テキストから金の1g価格として妥当な数字を取り出す"""
@@ -30,7 +30,6 @@ def scrape_all(page):
     # ================================
     try:
         page.goto("https://gold.tanaka.co.jp/silver_price/", wait_until="networkidle", timeout=30000)
-        # 買取価格行のprice_numを取得（price_sellクラスの親を持たないもの）
         els = page.query_selector_all(".price_num")
         for el in els:
             parent = el.evaluate("el => el.parentElement.className")
@@ -43,6 +42,19 @@ def scrape_all(page):
     except Exception as e:
         print(f"田中貴金属エラー: {e}")
         results["田中貴金属"] = None
+
+    # ================================
+    # まねきや
+    # ================================
+    try:
+        page.goto("https://manekiya.shop/rate", wait_until="networkidle", timeout=30000)
+        el = page.query_selector("p.price.ingot_price")
+        if el:
+            results["まねきや"] = clean_price(el.inner_text())
+        print(f"まねきや: {results.get('まねきや', '取得失敗')}")
+    except Exception as e:
+        print(f"まねきやエラー: {e}")
+        results["まねきや"] = None
 
     # ================================
     # おたからや
@@ -85,19 +97,6 @@ def scrape_all(page):
         results["なんぼや"] = None
 
     # ================================
-    # リファスタ
-    # ================================
-    try:
-        page.goto("https://kinkaimasu.jp/", wait_until="networkidle", timeout=30000)
-        el = page.query_selector("div#gold.price span.big")
-        if el:
-            results["リファスタ"] = clean_price(el.inner_text())
-        print(f"リファスタ: {results.get('リファスタ', '取得失敗')}")
-    except Exception as e:
-        print(f"リファスタエラー: {e}")
-        results["リファスタ"] = None
-
-    # ================================
     # バイセル
     # ================================
     try:
@@ -110,6 +109,19 @@ def scrape_all(page):
     except Exception as e:
         print(f"バイセルエラー: {e}")
         results["バイセル"] = None
+
+    # ================================
+    # リファスタ
+    # ================================
+    try:
+        page.goto("https://kinkaimasu.jp/", wait_until="networkidle", timeout=30000)
+        el = page.query_selector("div#gold.price span.big")
+        if el:
+            results["リファスタ"] = clean_price(el.inner_text())
+        print(f"リファスタ: {results.get('リファスタ', '取得失敗')}")
+    except Exception as e:
+        print(f"リファスタエラー: {e}")
+        results["リファスタ"] = None
 
     # ================================
     # ブラリバ
@@ -139,16 +151,15 @@ def save_to_spreadsheet(prices, date_str):
         client = gspread.authorize(creds)
         sheet = client.open_by_key(SPREADSHEET_ID).sheet1
 
-        # ヘッダーがなければ追加
         existing = sheet.get_all_values()
         if not existing:
-            headers = ["日付", "田中貴金属", "おたからや", "買取大吉", "なんぼや", "バイセル", "リファスタ", "ブラリバ"]
+            headers = ["日付", "田中貴金属", "まねきや", "おたからや", "買取大吉", "なんぼや", "バイセル", "リファスタ", "ブラリバ"]
             sheet.append_row(headers)
 
-        # 今日の行を追加
         row = [
             date_str,
             prices.get("田中貴金属", ""),
+            prices.get("まねきや", ""),
             prices.get("おたからや", ""),
             prices.get("買取大吉", ""),
             prices.get("なんぼや", ""),
@@ -165,7 +176,6 @@ def save_to_spreadsheet(prices, date_str):
 def save_to_json(prices, updated_at):
     """gold_prices.jsonを更新する"""
 
-    # 買取業者のみで最高値を計算
     kaitori = {k: v for k, v in prices.items() if k != "田中貴金属" and v}
     max_price = max(kaitori.values()) if kaitori else 0
 
@@ -174,13 +184,23 @@ def save_to_json(prices, updated_at):
             "name": "田中貴金属",
             "label": "ベンチマーク（公式相場）",
             "url": "https://gold.tanaka.co.jp/silver_price/",
+            "affiliate_url": "",
             "price": prices.get("田中貴金属"),
             "is_benchmark": True
+        },
+        {
+            "name": "まねきや",
+            "label": "",
+            "url": "https://manekiya.shop/rate",
+            "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+            "price": prices.get("まねきや"),
+            "is_benchmark": False
         },
         {
             "name": "おたからや",
             "label": "",
             "url": "https://lp.otakaraya.jp/lp-gold-b/",
+            "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
             "price": prices.get("おたからや"),
             "is_benchmark": False
         },
@@ -188,27 +208,31 @@ def save_to_json(prices, updated_at):
             "name": "買取大吉",
             "label": "",
             "url": "https://daikichi-kaitori.jp/gold/",
+            "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
             "price": prices.get("買取大吉"),
-            "is_benchmark": False
-        },
-        {
-            "name": "バイセル",
-            "label": "",
-            "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
-            "price": prices.get("バイセル"),
             "is_benchmark": False
         },
         {
             "name": "なんぼや",
             "label": "",
             "url": "https://nanboya.com/gold-kaitori/",
+            "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
             "price": prices.get("なんぼや"),
+            "is_benchmark": False
+        },
+        {
+            "name": "バイセル",
+            "label": "",
+            "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
+            "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
+            "price": prices.get("バイセル"),
             "is_benchmark": False
         },
         {
             "name": "リファスタ",
             "label": "",
             "url": "https://kinkaimasu.jp/",
+            "affiliate_url": "https://kaitoriranking.net/url/KIN/REFASTA-kin/?hikaku=market-rate",
             "price": prices.get("リファスタ"),
             "is_benchmark": False
         },
@@ -216,12 +240,12 @@ def save_to_json(prices, updated_at):
             "name": "ブラリバ",
             "label": "",
             "url": "https://brandrevalue.com/recommend/gold",
+            "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
             "price": prices.get("ブラリバ"),
             "is_benchmark": False
         },
     ]
 
-    # ベンチマーク以外を価格順にソート（Noneは最後）
     benchmark = [e for e in entries if e["is_benchmark"]]
     others = [e for e in entries if not e["is_benchmark"]]
     others_sorted = sorted(others, key=lambda x: x["price"] if x["price"] else 0, reverse=True)
@@ -255,10 +279,7 @@ def main():
     for name, price in prices.items():
         print(f"  {name}: {f'{price:,}円/g' if price else '取得失敗'}")
 
-    # JSONに保存
     save_to_json(prices, updated_at)
-
-    # スプレッドシートに記録
     save_to_spreadsheet(prices, date_str)
 
     print("\n=== 完了 ===")
