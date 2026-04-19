@@ -75,7 +75,8 @@ def scrape_all(page):
     # ================================
     try:
         page.goto("https://nanboya.com/gold-kaitori/", wait_until="networkidle", timeout=30000)
-        el = page.query_selector(".soaring_metal_price_3")
+        page.wait_for_selector(".soaring_metal_price_3", timeout=10000)
+        el = page.query_selector(".soaring_metal_price_3 .price_3_val")
         if el:
             results["なんぼや"] = clean_price(el.inner_text())
         print(f"なんぼや: {results.get('なんぼや', '取得失敗')}")
@@ -101,7 +102,8 @@ def scrape_all(page):
     # ================================
     try:
         page.goto("https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html", wait_until="networkidle", timeout=30000)
-        el = page.query_selector("section#market-price .market-right")
+        page.wait_for_selector(".price-value", timeout=10000)
+        el = page.query_selector(".price-value")
         if el:
             results["バイセル"] = clean_price(el.inner_text())
         print(f"バイセル: {results.get('バイセル', '取得失敗')}")
