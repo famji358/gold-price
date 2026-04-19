@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年04月19日 06:25",
+  "updated_at": "2026年04月19日 06:32",
   "prices": [
     {
       "name": "田中貴金属",
@@ -30,6 +30,13 @@
       "is_benchmark": false
     },
     {
+      "name": "なんぼや",
+      "label": "",
+      "url": "https://nanboya.com/gold-kaitori/",
+      "price": 26783,
+      "is_benchmark": false
+    },
+    {
       "name": "ブラリバ",
       "label": "",
       "url": "https://brandrevalue.com/recommend/gold",
@@ -41,13 +48,6 @@
       "label": "",
       "url": "https://kinkaimasu.jp/",
       "price": 26482,
-      "is_benchmark": false
-    },
-    {
-      "name": "なんぼや",
-      "label": "",
-      "url": "https://nanboya.com/gold-kaitori/",
-      "price": null,
       "is_benchmark": false
     }
   ]
