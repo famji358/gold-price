@@ -23,15 +23,12 @@ def get_tanaka():
     try:
         res = requests.get("https://gold.tanaka.co.jp/silver_price/", headers=HEADERS, timeout=10)
         soup = BeautifulSoup(res.text, "html.parser")
-        rows = soup.select("table tr")
-        for row in rows:
-            text = row.get_text()
-            if "店頭買取価格" in text:
-                cells = row.find_all(["td", "th"])
-                for cell in cells:
-                    price = clean_price(cell.get_text())
-                    if price:
-                        return price
+        # 買取価格行のtdから最初のprice_numを取得
+        for row in soup.select("table tr"):
+            if "店頭買取価格" in row.get_text():
+                el = row.select_one(".price_num")
+                if el:
+                    return clean_price(el.get_text())
     except Exception as e:
         print(f"田中貴金属エラー: {e}")
     return None
@@ -65,20 +62,10 @@ def get_nanboya():
     try:
         res = requests.get("https://nanboya.com/gold-kaitori/", headers=HEADERS, timeout=10)
         soup = BeautifulSoup(res.text, "html.parser")
-        # 今日の価格が含まれるdivを探す
-        for div in soup.find_all("div"):
-            text = div.get_text()
-            if "今日" in text or "本日" in text:
-                price = clean_price(text)
-                if price:
-                    return price
-        # フォールバック：ページ内の妥当な価格を探す
-        text = soup.get_text()
-        nums = re.findall(r'([\d,]+)円/g', text)
-        for n in nums:
-            val = int(n.replace(',', ''))
-            if 10000 <= val <= 100000:
-                return val
+        # 今年（3年目）の価格が入るクラスを直接取得
+        el = soup.select_one(".soaring_metal_price_3")
+        if el:
+            return clean_price(el.get_text())
     except Exception as e:
         print(f"なんぼやエラー: {e}")
     return None
@@ -88,9 +75,10 @@ def get_refasta():
     try:
         res = requests.get("https://kinkaimasu.jp/", headers=HEADERS, timeout=10)
         soup = BeautifulSoup(res.text, "html.parser")
-        gold_div = soup.find(id="gold")
+        # div#gold.price の中の span.big
+        gold_div = soup.select_one("div#gold.price")
         if gold_div:
-            el = gold_div.select_one(".big")
+            el = gold_div.select_one("span.big")
             if el:
                 return clean_price(el.get_text())
     except Exception as e:
