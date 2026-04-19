@@ -1,7 +1,9 @@
 import json
 import re
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+
+JST = timezone(timedelta(hours=9))
 from playwright.sync_api import sync_playwright
 import gspread
 from google.oauth2.service_account import Credentials
@@ -261,7 +263,7 @@ def save_to_json(prices, updated_at):
     print("gold_prices.json を更新しました")
 
 def main():
-    now = datetime.now()
+    now = datetime.now(JST)
     updated_at = now.strftime("%Y年%m月%d日 %H:%M")
     date_str = now.strftime("%Y/%m/%d")
 
