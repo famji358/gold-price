@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026年04月19日 05:21",
+  "updated_at": "2026年04月19日 05:59",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
-      "price": null,
+      "price": 26704,
       "is_benchmark": true
     },
     {
@@ -30,16 +30,22 @@
       "is_benchmark": false
     },
     {
-      "name": "なんぼや",
+      "name": "リファスタ",
       "label": "",
-      "url": "https://nanboya.com/gold-kaitori/",
+      "url": "https://kinkaimasu.jp/",
+      "price": 26482,
+      "is_benchmark": false
+    },
+    {
+      "name": "バイセル",
+      "label": "",
+      "url": "https://buysell-kaitori.com/gold/",
       "price": null,
       "is_benchmark": false
     },
     {
-      "name": "リファスタ",
       "label": "",
-      "url": "https://kinkaimasu.jp/",
+      "url": "https://nanboya.com/gold-kaitori/",
       "price": null,
       "is_benchmark": false
     }
