@@ -1,13 +1,37 @@
 {
-  "updated_at": "2026年04月20日 14:14",
+  "updated_at": "2026年04月20日 14:25",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 26776,
+      "price": null,
       "is_benchmark": true
+    },
+    {
+      "name": "おたからや",
+      "label": "",
+      "url": "https://lp.otakaraya.jp/lp-gold-b/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
+      "price": 26776,
+      "is_benchmark": false
+    },
+    {
+      "name": "まねきや",
+      "label": "",
+      "url": "https://manekiya.shop/rate",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "price": 26655,
+      "is_benchmark": false
+    },
+    {
+      "name": "買取大吉",
+      "label": "",
+      "url": "https://daikichi-kaitori.jp/gold/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
+      "price": 26576,
+      "is_benchmark": false
     },
     {
       "name": "ブラリバ",
@@ -31,30 +55,6 @@
       "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
       "price": 26576,
-      "is_benchmark": false
-    },
-    {
-      "name": "おたからや",
-      "label": "",
-      "url": "https://lp.otakaraya.jp/lp-gold-b/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
-      "price": null,
-      "is_benchmark": false
-    },
-    {
-      "name": "まねきや",
-      "label": "",
-      "url": "https://manekiya.shop/rate",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": null,
-      "is_benchmark": false
-    },
-    {
-      "name": "買取大吉",
-      "label": "",
-      "url": "https://daikichi-kaitori.jp/gold/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": null,
       "is_benchmark": false
     }
   ]
