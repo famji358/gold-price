@@ -32,6 +32,7 @@ def scrape_all(page):
     # ================================
     try:
         page.goto("https://gold.tanaka.co.jp/silver_price/", wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_selector(".price_num", timeout=15000)
         els = page.query_selector_all(".price_num")
         for el in els:
             parent = el.evaluate("el => el.parentElement.className")
