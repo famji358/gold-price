@@ -31,7 +31,7 @@ def scrape_all(page):
     # 田中貴金属（ベンチマーク）
     # ================================
     try:
-        page.goto("https://gold.tanaka.co.jp/silver_price/", wait_until="networkidle", timeout=30000)
+        page.goto("https://gold.tanaka.co.jp/silver_price/", wait_until="domcontentloaded", timeout=60000)
         els = page.query_selector_all(".price_num")
         for el in els:
             parent = el.evaluate("el => el.parentElement.className")
@@ -49,8 +49,8 @@ def scrape_all(page):
     # まねきや
     # ================================
     try:
-        page.goto("https://manekiya.shop/rate", wait_until="domcontentloaded", timeout=60000)
-        page.wait_for_selector("p.price.ingot_price", timeout=15000)
+        page.goto("https://manekiya.shop/rate", wait_until="domcontentloaded", timeout=90000)
+        page.wait_for_selector("p.price.ingot_price", timeout=20000)
         el = page.query_selector("p.price.ingot_price")
         if el:
             results["まねきや"] = clean_price(el.inner_text())
@@ -63,7 +63,8 @@ def scrape_all(page):
     # おたからや
     # ================================
     try:
-        page.goto("https://www.otakaraya.jp/gold/", wait_until="networkidle", timeout=30000)
+        page.goto("https://www.otakaraya.jp/gold/", wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_selector(".rate-price", timeout=15000)
         el = page.query_selector(".rate-price")
         if el:
             results["おたからや"] = clean_price(el.inner_text())
@@ -76,7 +77,8 @@ def scrape_all(page):
     # 買取大吉
     # ================================
     try:
-        page.goto("https://daikichi-kaitori.jp/gold/", wait_until="networkidle", timeout=30000)
+        page.goto("https://daikichi-kaitori.jp/gold/", wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_selector("#bold_bm2025", timeout=15000)
         el = page.query_selector("#bold_bm2025")
         if el:
             results["買取大吉"] = clean_price(el.inner_text())
@@ -103,7 +105,7 @@ def scrape_all(page):
     # バイセル
     # ================================
     try:
-        page.goto("https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html", wait_until="networkidle", timeout=30000)
+        page.goto("https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html", wait_until="domcontentloaded", timeout=60000)
         page.wait_for_selector(".price-value", timeout=10000)
         el = page.query_selector(".price-value")
         if el:
@@ -117,7 +119,7 @@ def scrape_all(page):
     # ブラリバ
     # ================================
     try:
-        page.goto("https://brandrevalue.com/cat/gold/ingot", wait_until="networkidle", timeout=30000)
+        page.goto("https://brandrevalue.com/cat/gold/ingot", wait_until="domcontentloaded", timeout=60000)
         el = page.query_selector(".metal-price-today")
         if el:
             results["ブラリバ"] = clean_price(el.inner_text())
