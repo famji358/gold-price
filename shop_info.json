@@ -2,7 +2,7 @@
   "shops": [
     {
       "name": "まねきや",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2025/06/manakiya-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
       "float_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?gold-market-price=float",
       "delivery": true,
@@ -30,7 +30,7 @@
     },
     {
       "name": "買取大吉",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/04/daikichi-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
       "float_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?gold-market-price=float",
       "delivery": false,
@@ -44,7 +44,7 @@
     },
     {
       "name": "なんぼや",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2024/09/nanboya-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
       "float_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?gold-market-price=float",
       "delivery": true,
@@ -58,7 +58,7 @@
     },
     {
       "name": "バイセル",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/buysell-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
       "float_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?gold-market-price=float",
       "delivery": true,
@@ -72,7 +72,7 @@
     },
     {
       "name": "ブラリバ",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2025/01/brareva-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
       "float_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?gold-market-price=float",
       "delivery": true,
@@ -86,7 +86,7 @@
     },
     {
       "name": "田中貴金属",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/04/tanaka-logo.png",
       "affiliate_url": "",
       "float_url": "",
       "delivery": false,
