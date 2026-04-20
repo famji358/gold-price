@@ -2,7 +2,7 @@
   "shops": [
     {
       "name": "まねきや",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2025/06/manakiya-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
       "delivery": true,
       "visit": true,
@@ -28,7 +28,7 @@
     },
     {
       "name": "買取大吉",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/04/daikichi-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
       "delivery": false,
       "visit": true,
@@ -41,7 +41,7 @@
     },
     {
       "name": "なんぼや",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2024/09/nanboya-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
       "delivery": true,
       "visit": true,
@@ -54,7 +54,7 @@
     },
     {
       "name": "バイセル",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/buysell-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
       "delivery": true,
       "visit": true,
@@ -67,7 +67,7 @@
     },
     {
       "name": "ブラリバ",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2025/01/brareva-logo.png",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
       "delivery": true,
       "visit": true,
@@ -80,7 +80,7 @@
     },
     {
       "name": "田中貴金属",
-      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/03/otakaraya-logo.png",
+      "logo": "https://kaitoriranking.net/wp-content/uploads/2026/04/tanaka-logo.png",
       "affiliate_url": "",
       "delivery": false,
       "visit": false,
@@ -89,7 +89,7 @@
       "store_count": "",
       "review": "",
       "is_benchmark": true,
-      "note": "日本の地金価格の代表的な指標（ベンチマーク）。インゴット・メダルのみ取引可能。"
+      "note": "日本の地金価格の代表的な指標（ベンチマーク）。インゴット・メダルのみ。店頭取引のみ。"
     }
   ]
 }
