@@ -2,13 +2,12 @@ name: gold-price-update
 
 on:
   schedule:
-    - cron: '35 1 * * *'
+    - cron: '45 1 * * *'
   workflow_dispatch:
 
 jobs:
   update-prices:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
@@ -16,11 +15,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: ライブラリをインストール
-        run: pip install playwright gspread google-auth
+      - run: pip install playwright gspread google-auth
 
-      - name: Playwrightのブラウザをインストール
-        run: playwright install chromium --with-deps
+      - run: playwright install chromium --with-deps
 
       - name: 価格取得スクリプトを実行
         env:
@@ -28,8 +25,7 @@ jobs:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
         run: python scraper.py
 
-      - name: JSONをコミット・プッシュ
-        run: |
+      - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add gold_prices.json
