@@ -12,7 +12,8 @@
       "store_count": "25",
       "review": "4.8",
       "is_benchmark": false,
-      "note": ""
+      "note": "",
+      "hidden": false
     },
     {
       "name": "おたからや",
@@ -23,10 +24,11 @@
       "visit": true,
       "store": true,
       "fee": "無料",
-      "store_count": "1,750",
+      "store_count": "1,740",
       "review": "4.8",
       "is_benchmark": false,
-      "note": ""
+      "note": "",
+      "hidden": false
     },
     {
       "name": "買取大吉",
@@ -40,7 +42,8 @@
       "store_count": "1,800",
       "review": "4.8",
       "is_benchmark": false,
-      "note": ""
+      "note": "",
+      "hidden": false
     },
     {
       "name": "なんぼや",
@@ -54,7 +57,8 @@
       "store_count": "144",
       "review": "4.8",
       "is_benchmark": false,
-      "note": ""
+      "note": "",
+      "hidden": false
     },
     {
       "name": "バイセル",
@@ -68,7 +72,8 @@
       "store_count": "162",
       "review": "4.8",
       "is_benchmark": false,
-      "note": ""
+      "note": "",
+      "hidden": true
     },
     {
       "name": "ブラリバ",
@@ -82,7 +87,8 @@
       "store_count": "29",
       "review": "4.8",
       "is_benchmark": false,
-      "note": ""
+      "note": "",
+      "hidden": false
     },
     {
       "name": "田中貴金属",
@@ -96,7 +102,8 @@
       "store_count": "",
       "review": "",
       "is_benchmark": true,
-      "note": "日本の地金価格の代表的な指標（ベンチマーク）。一般的な金製品の買取は不可。店頭取引のみ。"
+      "note": "日本の地金価格の代表的な指標（ベンチマーク）。一般的な金製品の買取は不可。店頭取引のみ。",
+      "hidden": false
     }
   ]
 }
