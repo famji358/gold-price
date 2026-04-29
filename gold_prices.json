@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年04月28日 18:38",
+  "updated_at": "2026年04月29日 10:00",
   "prices": [
     {
       "name": "田中貴金属",
@@ -26,14 +26,6 @@
       "is_benchmark": false
     },
     {
-      "name": "ブラリバ",
-      "label": "",
-      "url": "https://brandrevalue.com/recommend/gold",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
-      "price": 26232,
-      "is_benchmark": false
-    },
-    {
       "name": "なんぼや",
       "label": "",
       "url": "https://nanboya.com/gold-kaitori/",
@@ -55,6 +47,14 @@
       "url": "https://manekiya.shop/rate",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
       "price": 26101,
+      "is_benchmark": false
+    },
+    {
+      "name": "ブラリバ",
+      "label": "",
+      "url": "https://brandrevalue.com/recommend/gold",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
+      "price": 26002,
       "is_benchmark": false
     }
   ]
