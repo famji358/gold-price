@@ -1,35 +1,19 @@
 {
-  "updated_at": "2026年04月29日 18:24",
+  "updated_at": "2026年04月30日 10:01",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 25832,
+      "price": 25660,
       "is_benchmark": true
-    },
-    {
-      "name": "おたからや",
-      "label": "",
-      "url": "https://lp.otakaraya.jp/lp-gold-b/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
-      "price": 26299,
-      "is_benchmark": false
     },
     {
       "name": "買取大吉",
       "label": "",
       "url": "https://daikichi-kaitori.jp/gold/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": 26232,
-      "is_benchmark": false
-    },
-    {
-      "name": "なんぼや",
-      "label": "",
-      "url": "https://nanboya.com/gold-kaitori/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
       "price": 26232,
       "is_benchmark": false
     },
@@ -42,11 +26,11 @@
       "is_benchmark": false
     },
     {
-      "name": "ブラリバ",
+      "name": "おたからや",
       "label": "",
-      "url": "https://brandrevalue.com/recommend/gold",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
-      "price": 26002,
+      "url": "https://lp.otakaraya.jp/lp-gold-b/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
+      "price": 25660,
       "is_benchmark": false
     },
     {
@@ -54,7 +38,23 @@
       "label": "",
       "url": "https://manekiya.shop/rate",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": 25803,
+      "price": 25660,
+      "is_benchmark": false
+    },
+    {
+      "name": "ブラリバ",
+      "label": "",
+      "url": "https://brandrevalue.com/recommend/gold",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
+      "price": 25647,
+      "is_benchmark": false
+    },
+    {
+      "name": "なんぼや",
+      "label": "",
+      "url": "https://nanboya.com/gold-kaitori/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
+      "price": 25647,
       "is_benchmark": false
     }
   ]
