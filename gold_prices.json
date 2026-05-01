@@ -1,29 +1,13 @@
 {
-  "updated_at": "2026年05月01日 10:01",
+  "updated_at": "2026年05月01日 17:30",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 25551,
+      "price": 25139,
       "is_benchmark": true
-    },
-    {
-      "name": "買取大吉",
-      "label": "",
-      "url": "https://daikichi-kaitori.jp/gold/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": 26232,
-      "is_benchmark": false
-    },
-    {
-      "name": "バイセル",
-      "label": "",
-      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
-      "price": 25647,
-      "is_benchmark": false
     },
     {
       "name": "おたからや",
@@ -42,6 +26,14 @@
       "is_benchmark": false
     },
     {
+      "name": "買取大吉",
+      "label": "",
+      "url": "https://daikichi-kaitori.jp/gold/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
+      "price": 25468,
+      "is_benchmark": false
+    },
+    {
       "name": "ブラリバ",
       "label": "",
       "url": "https://brandrevalue.com/recommend/gold",
@@ -54,6 +46,14 @@
       "label": "",
       "url": "https://nanboya.com/gold-kaitori/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
+      "price": 25468,
+      "is_benchmark": false
+    },
+    {
+      "name": "バイセル",
+      "label": "",
+      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
       "price": 25468,
       "is_benchmark": false
     }
