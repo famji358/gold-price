@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026年05月29日 14:15",
+  "updated_at": "2026年05月30日 10:00",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 25215,
+      "price": 25187,
       "is_benchmark": true
     },
     {
@@ -22,7 +22,7 @@
       "label": "",
       "url": "https://manekiya.shop/rate",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": 25132,
+      "price": 25215,
       "is_benchmark": false
     },
     {
