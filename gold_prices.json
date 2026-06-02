@@ -1,20 +1,28 @@
 {
-  "updated_at": "2026年06月02日 10:01",
+  "updated_at": "2026年06月02日 14:52",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 25178,
+      "price": 25272,
       "is_benchmark": true
+    },
+    {
+      "name": "おたからや",
+      "label": "",
+      "url": "https://lp.otakaraya.jp/lp-gold-b/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
+      "price": 25272,
+      "is_benchmark": false
     },
     {
       "name": "まねきや",
       "label": "",
       "url": "https://manekiya.shop/rate",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": 25402,
+      "price": 25272,
       "is_benchmark": false
     },
     {
@@ -22,23 +30,7 @@
       "label": "",
       "url": "https://daikichi-kaitori.jp/gold/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": 25346,
-      "is_benchmark": false
-    },
-    {
-      "name": "バイセル",
-      "label": "",
-      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
-      "price": 25346,
-      "is_benchmark": false
-    },
-    {
-      "name": "おたからや",
-      "label": "",
-      "url": "https://lp.otakaraya.jp/lp-gold-b/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
-      "price": 25178,
+      "price": 25110,
       "is_benchmark": false
     },
     {
@@ -54,6 +46,14 @@
       "label": "",
       "url": "https://nanboya.com/gold-kaitori/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
+      "price": 25110,
+      "is_benchmark": false
+    },
+    {
+      "name": "バイセル",
+      "label": "",
+      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
       "price": 25110,
       "is_benchmark": false
     }
