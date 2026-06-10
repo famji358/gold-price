@@ -1,21 +1,13 @@
 {
-  "updated_at": "2026年06月10日 10:01",
+  "updated_at": "2026年06月10日 14:22",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 23811,
+      "price": 23558,
       "is_benchmark": true
-    },
-    {
-      "name": "バイセル",
-      "label": "",
-      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
-      "price": 24250,
-      "is_benchmark": false
     },
     {
       "name": "おたからや",
@@ -26,11 +18,11 @@
       "is_benchmark": false
     },
     {
-      "name": "ブラリバ",
+      "name": "まねきや",
       "label": "",
-      "url": "https://brandrevalue.com/recommend/gold",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
-      "price": 23716,
+      "url": "https://manekiya.shop/rate",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "price": 23811,
       "is_benchmark": false
     },
     {
@@ -42,11 +34,11 @@
       "is_benchmark": false
     },
     {
-      "name": "まねきや",
+      "name": "バイセル",
       "label": "",
-      "url": "https://manekiya.shop/rate",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": null,
+      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
+      "price": 23716,
       "is_benchmark": false
     },
     {
@@ -54,7 +46,15 @@
       "label": "",
       "url": "https://daikichi-kaitori.jp/gold/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": null,
+      "price": 23413,
+      "is_benchmark": false
+    },
+    {
+      "name": "ブラリバ",
+      "label": "",
+      "url": "https://brandrevalue.com/recommend/gold",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BRAREVA-kin/?hikaku=market-rate",
+      "price": 23413,
       "is_benchmark": false
     }
   ]
