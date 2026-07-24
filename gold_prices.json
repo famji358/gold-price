@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年07月24日 10:01",
+  "updated_at": "2026年07月24日 13:17",
   "prices": [
     {
       "name": "田中貴金属",
@@ -10,19 +10,27 @@
       "is_benchmark": true
     },
     {
-      "name": "バイセル",
-      "label": "",
-      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
-      "price": 23567,
-      "is_benchmark": false
-    },
-    {
       "name": "おたからや",
       "label": "",
       "url": "https://lp.otakaraya.jp/lp-gold-b/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
       "price": 23298,
+      "is_benchmark": false
+    },
+    {
+      "name": "まねきや",
+      "label": "",
+      "url": "https://manekiya.shop/rate",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "price": 23298,
+      "is_benchmark": false
+    },
+    {
+      "name": "買取大吉",
+      "label": "",
+      "url": "https://daikichi-kaitori.jp/gold/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
+      "price": 23205,
       "is_benchmark": false
     },
     {
@@ -42,19 +50,11 @@
       "is_benchmark": false
     },
     {
-      "name": "まねきや",
+      "name": "バイセル",
       "label": "",
-      "url": "https://manekiya.shop/rate",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": null,
-      "is_benchmark": false
-    },
-    {
-      "name": "買取大吉",
-      "label": "",
-      "url": "https://daikichi-kaitori.jp/gold/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": null,
+      "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
+      "price": 23205,
       "is_benchmark": false
     }
   ]
