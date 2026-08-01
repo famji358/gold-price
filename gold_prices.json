@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026年07月31日 13:24",
+  "updated_at": "2026年08月01日 10:01",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 23039,
+      "price": 22860,
       "is_benchmark": true
     },
     {
