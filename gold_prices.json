@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年08月01日 10:01",
+  "updated_at": "2026年08月02日 10:01",
   "prices": [
     {
       "name": "田中貴金属",
@@ -14,14 +14,6 @@
       "label": "",
       "url": "https://lp.otakaraya.jp/lp-gold-b/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
-      "price": 23039,
-      "is_benchmark": false
-    },
-    {
-      "name": "まねきや",
-      "label": "",
-      "url": "https://manekiya.shop/rate",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
       "price": 23039,
       "is_benchmark": false
     },
@@ -55,6 +47,14 @@
       "url": "https://buysell-kaitori.com/lp/al/ad-store/lisg/aga/sem/gopla/001_0002.html",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/BUYSELL-kin/?hikaku=market-rate",
       "price": 22947,
+      "is_benchmark": false
+    },
+    {
+      "name": "まねきや",
+      "label": "",
+      "url": "https://manekiya.shop/rate",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "price": 22426,
       "is_benchmark": false
     }
   ]
