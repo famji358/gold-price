@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年08月22日 10:01",
+  "updated_at": "2026年08月23日 10:00",
   "prices": [
     {
       "name": "田中貴金属",
@@ -15,14 +15,6 @@
       "url": "https://lp.otakaraya.jp/lp-gold-b/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
       "price": 25415,
-      "is_benchmark": false
-    },
-    {
-      "name": "まねきや",
-      "label": "",
-      "url": "https://manekiya.shop/rate",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": 25352,
       "is_benchmark": false
     },
     {
@@ -50,11 +42,19 @@
       "is_benchmark": false
     },
     {
+      "name": "まねきや",
+      "label": "",
+      "url": "https://manekiya.shop/rate",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "price": null,
+      "is_benchmark": false
+    },
+    {
       "name": "買取大吉",
       "label": "",
       "url": "https://daikichi-kaitori.jp/gold/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": 24995,
+      "price": null,
       "is_benchmark": false
     }
   ]
