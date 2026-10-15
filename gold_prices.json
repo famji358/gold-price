@@ -1,21 +1,13 @@
 {
-  "updated_at": "2026年10月15日 10:01",
+  "updated_at": "2026年10月15日 14:40",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 22919,
+      "price": 22974,
       "is_benchmark": true
-    },
-    {
-      "name": "まねきや",
-      "label": "",
-      "url": "https://manekiya.shop/rate",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": 23113,
-      "is_benchmark": false
     },
     {
       "name": "バイセル",
@@ -30,7 +22,15 @@
       "label": "",
       "url": "https://lp.otakaraya.jp/lp-gold-b/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/OTAKARAYA-kin/?hikaku=market-rate",
-      "price": 22919,
+      "price": 22974,
+      "is_benchmark": false
+    },
+    {
+      "name": "まねきや",
+      "label": "",
+      "url": "https://manekiya.shop/rate",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "price": 22974,
       "is_benchmark": false
     },
     {
