@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年10月26日 14:51",
+  "updated_at": "2026年10月27日 10:01",
   "prices": [
     {
       "name": "田中貴金属",
@@ -10,6 +10,22 @@
       "is_benchmark": true
     },
     {
+      "name": "まねきや",
+      "label": "",
+      "url": "https://manekiya.shop/rate",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "price": 22226,
+      "is_benchmark": false
+    },
+    {
+      "name": "なんぼや",
+      "label": "",
+      "url": "https://nanboya.com/gold-kaitori/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
+      "price": 22128,
+      "is_benchmark": false
+    },
+    {
       "name": "おたからや",
       "label": "",
       "url": "https://lp.otakaraya.jp/lp-gold-b/",
@@ -18,26 +34,10 @@
       "is_benchmark": false
     },
     {
-      "name": "まねきや",
-      "label": "",
-      "url": "https://manekiya.shop/rate",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": 22125,
-      "is_benchmark": false
-    },
-    {
       "name": "買取大吉",
       "label": "",
       "url": "https://daikichi-kaitori.jp/gold/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": 21943,
-      "is_benchmark": false
-    },
-    {
-      "name": "なんぼや",
-      "label": "",
-      "url": "https://nanboya.com/gold-kaitori/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
       "price": 21943,
       "is_benchmark": false
     },
