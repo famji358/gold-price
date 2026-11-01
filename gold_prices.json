@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年10月31日 10:01",
+  "updated_at": "2026年11月01日 10:01",
   "prices": [
     {
       "name": "田中貴金属",
@@ -8,14 +8,6 @@
       "affiliate_url": "",
       "price": 21938,
       "is_benchmark": true
-    },
-    {
-      "name": "買取大吉",
-      "label": "",
-      "url": "https://daikichi-kaitori.jp/gold/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": 22341,
-      "is_benchmark": false
     },
     {
       "name": "おたからや",
@@ -31,6 +23,14 @@
       "url": "https://manekiya.shop/rate",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
       "price": 22195,
+      "is_benchmark": false
+    },
+    {
+      "name": "買取大吉",
+      "label": "",
+      "url": "https://daikichi-kaitori.jp/gold/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
+      "price": 22126,
       "is_benchmark": false
     },
     {
