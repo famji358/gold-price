@@ -1,21 +1,13 @@
 {
-  "updated_at": "2026年11月06日 10:01",
+  "updated_at": "2026年11月06日 16:46",
   "prices": [
     {
       "name": "田中貴金属",
       "label": "ベンチマーク（公式相場）",
       "url": "https://gold.tanaka.co.jp/silver_price/",
       "affiliate_url": "",
-      "price": 22730,
+      "price": 22407,
       "is_benchmark": true
-    },
-    {
-      "name": "まねきや",
-      "label": "",
-      "url": "https://manekiya.shop/rate",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
-      "price": 22966,
-      "is_benchmark": false
     },
     {
       "name": "おたからや",
@@ -26,11 +18,11 @@
       "is_benchmark": false
     },
     {
-      "name": "なんぼや",
+      "name": "まねきや",
       "label": "",
-      "url": "https://nanboya.com/gold-kaitori/",
-      "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
-      "price": 22663,
+      "url": "https://manekiya.shop/rate",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/MANEKIYA-kin/?hikaku=market-rate",
+      "price": 22730,
       "is_benchmark": false
     },
     {
@@ -38,7 +30,15 @@
       "label": "",
       "url": "https://daikichi-kaitori.jp/gold/",
       "affiliate_url": "https://kaitoriranking.net/url/KIN/DAIKICHI-kin/?hikaku=market-rate",
-      "price": 22613,
+      "price": 22663,
+      "is_benchmark": false
+    },
+    {
+      "name": "なんぼや",
+      "label": "",
+      "url": "https://nanboya.com/gold-kaitori/",
+      "affiliate_url": "https://kaitoriranking.net/url/KIN/NANBOYA-kin/?hikaku=market-rate",
+      "price": 22663,
       "is_benchmark": false
     },
     {
